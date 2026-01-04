@@ -28,7 +28,7 @@ const difficulty =
     : "";
 
 
-    let url = `http://localhost:5000/api/leaderboard?limit=${limit}`;
+    let url = `https://quizplay-1y05.onrender.com/api/leaderboard?limit=${limit}`;
 
     if (category) url += `&category=${encodeURIComponent(category)}`;
     if (difficulty) url += `&difficulty=${encodeURIComponent(difficulty)}`;

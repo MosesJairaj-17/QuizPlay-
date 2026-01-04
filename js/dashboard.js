@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= USER RANK ================= */
 
-  fetch("http://localhost:5000/api/leaderboard?limit=100")
+  fetch("https://quizplay-1y05.onrender.com/api/leaderboard?limit=100")
     .then(res => res.json())
     .then(data => {
       const index = data.findIndex(item => item.name === user.name);
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= DASHBOARD DATA ================= */
 
-  fetch(`http://localhost:5000/api/dashboard/${userId}`)
+  fetch(`https://quizplay-1y05.onrender.com/api/dashboard/${userId}`)
     .then(res => res.json())
     .then(data => {
 

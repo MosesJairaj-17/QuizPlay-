@@ -142,7 +142,7 @@ if (pointsText) {
 
   console.log("Sending quiz history to backend:", payload);
 
-  fetch("http://localhost:5000/api/history/save", {
+  fetch("https://quizplay-1y05.onrender.com/api/history/save", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
