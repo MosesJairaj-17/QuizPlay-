@@ -5,12 +5,13 @@
 import {
   auth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup
+  signInWithEmailAndPassword
 } from "./firebase.js";
 
 import {
+  GoogleAuthProvider,
+  signInWithRedirect,
+  getRedirectResult,
   sendEmailVerification,
   signOut,
   updateProfile
@@ -100,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
-
       await updateProfile(cred.user, { displayName: name });
       await sendEmailVerification(cred.user);
       await signOut(auth);
@@ -111,17 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Account created successfully. Please log in to continue.",
         () => switchTab("login")
       );
-
     } catch (err) {
-      if (err.code === "auth/email-already-in-use") {
-        showModal(
-          "error",
-          "Account Exists",
-          "An account with this email already exists. Please log in instead."
-        );
-      } else {
-        showModal("error", "Signup Failed", err.message);
-      }
+      showModal("error", "Signup Failed", err.message);
     }
   });
 
@@ -162,56 +153,37 @@ document.addEventListener("DOMContentLoaded", () => {
         "Login successful. Welcome back!",
         () => (window.location.href = "index.html")
       );
-
     } catch (err) {
-      if (err.code === "auth/user-not-found") {
-        showModal(
-          "error",
-          "Account Not Found",
-          "No account found with this email. Please sign up to continue."
-        );
-      } else if (
-        err.code === "auth/wrong-password" ||
-        err.code === "auth/invalid-credential"
-      ) {
-        showModal(
-          "error",
-          "Invalid Credentials",
-          "The email or password you entered is incorrect."
-        );
-      } else {
-        showModal("error", "Login Failed", err.message);
-      }
+      showModal("error", "Login Failed", err.message);
     }
   });
 
-  /* ================= GOOGLE LOGIN ================= */
+  /* ================= GOOGLE LOGIN (REDIRECT – FIXED) ================= */
 
   googleLogin?.addEventListener("click", async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-
-      localStorage.setItem("user", JSON.stringify({
-        name: result.user.displayName,
-        email: result.user.email,
-        photoURL: result.user.photoURL,
-        role: "user"
-      }));
-
-      localStorage.removeItem("guest");
-
-      showModal(
-        "success",
-        "Login Successful",
-        "Login successful. Welcome back!",
-        () => (window.location.href = "index.html")
-      );
-
-    } catch (err) {
-      showModal("error", "Google Login Failed", err.message);
-    }
+    const provider = new GoogleAuthProvider();
+    await signInWithRedirect(auth, provider);
   });
+
+  /* ================= GOOGLE REDIRECT RESULT ================= */
+
+  getRedirectResult(auth)
+    .then((result) => {
+      if (result && result.user) {
+        localStorage.setItem("user", JSON.stringify({
+          name: result.user.displayName,
+          email: result.user.email,
+          photoURL: result.user.photoURL || "",
+          role: "user"
+        }));
+
+        localStorage.removeItem("guest");
+        window.location.href = "index.html";
+      }
+    })
+    .catch((error) => {
+      console.error("Google redirect error:", error);
+    });
 
   /* ================= GUEST ================= */
 
