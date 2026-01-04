@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuizPlay| Quiz</title>
+  <link rel="icon" type="image/png" href="css/logo.png">
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+<div id="navbar-container"></div>
+
+<a href="index.html" class="quiz-back">← Back to Home</a>
+
+
+<!-- ================= GUEST BANNER ================= -->
+<div id="guest-banner" class="guest-banner hidden">
+  <span class="dot"></span>
+  <span>
+    Guest Mode · Progress won’t be saved
+    <a href="auth.html">Login to save</a>
+  </span>
+</div>
+
+
+
+<!-- ================= MAIN ================= -->
+<main class="quiz-setup">
+
+  <!-- ================= STEP 1: CATEGORY ================= -->
+  <section class="step active" id="step-category">
+    <h2>Select Category</h2>
+
+    <div class="options">
+      <button class="setup-option">General Knowledge</button>
+      <button class="setup-option">Science</button>
+      <button class="setup-option">Technology</button>
+      <button class="setup-option">Sports</button>
+      <button class="setup-option">History</button>
+      <button class="setup-option">Movies</button>
+      <button class="setup-option">Mathematics</button>
+      <button class="setup-option">Music</button>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn primary" id="to-level">Next</button>
+    </div>
+  </section>
+
+  <!-- ================= STEP 2: DIFFICULTY ================= -->
+  <section class="step" id="step-level">
+    <h2>Select Difficulty</h2>
+
+    <div class="diff-options">
+      <button class="setup-option">Easy</button>
+      <button class="setup-option">Medium</button>
+      <button class="setup-option">Hard</button>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn secondary" id="back-to-category">Back</button>
+      <button class="btn primary" id="to-settings">Next</button>
+    </div>
+  </section>
+
+  <!-- ================= STEP 3: SETTINGS ================= -->
+  <section class="step" id="step-settings">
+    <h2>Quiz Settings</h2>
+
+    <label>
+      Overall Timer
+      <select id="timer">
+        <option value="15">15 seconds</option>
+        <option value="20">20 seconds</option>
+        <option value="30">30 seconds</option>
+        <option value="45">45 seconds</option>
+        <option value="60">1 minute</option>
+      </select>
+    </label>
+
+    <label>
+      Number of Questions
+      <select id="question-count">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+      </select>
+    </label>
+
+    <div class="nav-actions">
+      <button class="btn secondary" id="back-to-level">Back</button>
+      <button class="btn primary" id="start-quiz">Start Quiz</button>
+    </div>
+  </section>
+
+  <!-- ================= STEP 4: QUIZ PLAY ================= -->
+  <section class="step" id="step-play">
+
+    <!-- TIMER -->
+    <div class="timer-wrapper">
+      <span id="timer-text">15</span>
+      <div class="timer-bar">
+        <div class="timer-fill" id="timer-fill"></div>
+      </div>
+    </div>
+
+    <!-- QUESTION -->
+    <div class="question-box">
+      <p id="question-text">Question text</p>
+    </div>
+
+    <!-- OPTIONS -->
+    <div class="ans-options" id="quiz-options"></div>
+
+    <!-- ACTIONS -->
+    <div class="nav-actions center-actions">
+      <button class="btn primary" id="submit-answer">Submit</button>
+      <button class="btn primary hidden" id="next-question">Next</button>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ================= CHATBOT ================= -->
+<link rel="stylesheet" href="css/chatbot.css">
+
+<div id="chatbot-container"></div>
+
+<script src="js/loadChatbot.js"></script>
+<script src="js/chatbot.js"></script>
+
+
+
+
+<!-- ================= SCRIPTS (ORDER MATTERS) ================= -->
+<script src="js/theme.js"></script>
+<script src="js/questions.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/script.js"></script>
+<script src="js/navbar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuizPlay | Results</title>
+  <link rel="icon" type="image/png" href="css/logo.png">
+
+
+  <!-- Result Page CSS -->
+  <link rel="stylesheet" href="css/result.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+<div id="navbar-container"></div>
+
+
+  <!-- ================= MAIN ================= -->
+  <main class="result-container">
+
+    <!-- ================= SCORE SECTION ================= -->
+    <section class="score-section">
+
+      <!-- PROGRESS RING + SCORE -->
+      <div class="score-circle">
+
+        <svg class="progress-ring" width="190" height="190">
+          <circle
+            class="progress-ring-bg"
+            cx="95"
+            cy="95"
+            r="85"
+          />
+          <circle
+            class="progress-ring-fill"
+            cx="95"
+            cy="95"
+            r="85"
+          />
+        </svg>
+
+        <span id="score-text">0 / 0</span>
+      </div>
+
+      <p class="score-label">Your Score</p>
+
+      <!-- PERFECT SCORE BADGE -->
+      <div id="perfect-badge" class="perfect-badge hidden">
+        🏆 Perfect Score!
+      </div>
+
+      <p id="points-text" class="points-text"></p>
+
+
+    </section>
+
+    <!-- ================= ACTION BUTTONS ================= -->
+    <section class="result-actions">
+      <button class="btn primary" id="restart-quiz">
+        Restart Same Quiz
+      </button>
+
+      <button class="btn secondary" id="view-details">
+        View Results
+      </button>
+
+      <button class="btn secondary" id="new-quiz">
+        Start New Quiz
+      </button>
+
+      <button id="view-leaderboard" class="btn secondary">
+        View Leaderboard
+      </button>
+    </section>
+
+    <!-- ================= DETAILED RESULTS ================= -->
+    <section class="result-details hidden" id="result-details">
+      <!-- Content injected by result.js -->
+    </section>
+
+  </main>
+
+  <!-- Chatbot Button -->
+<link rel="stylesheet" href="css/chatbot.css">
+
+<div id="chatbot-container"></div>
+
+<script src="js/loadChatbot.js"></script>
+<script src="js/chatbot.js"></script>
+
+
+
+<script src="js/theme.js"></script>
+<script src="js/result.js"></script>
+<script src="js/script.js"></script>
+<script src="js/navbar.js"></script>
+</body>
+</html>

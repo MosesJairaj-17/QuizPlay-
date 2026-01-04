@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>QuizPlay | Authentication</title>
+  <link rel="icon" type="image/png" href="css/logo.png">
+
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<div id="navbar-container"></div>
+
+<a href="index.html" class="auth-back">← Back to Home</a>
+
+<div class="auth-page">
+  <div class="auth-card">
+
+    <h1 class="auth-logo">QuizPlay</h1>
+    <p class="auth-subtitle" id="authSubtitle">Login to continue playing</p>
+
+    <!-- ================= TABS ================= -->
+    <div class="auth-tabs">
+      <button class="tab active" data-tab="login">Login</button>
+      <button class="tab" data-tab="signup">Sign Up</button>
+      <button class="tab" data-tab="guest">Guest</button>
+    </div>
+
+    <!-- ================= LOGIN ================= -->
+    <form id="loginForm" class="auth-form tab-content active">
+      <input type="text" id="loginUsername" placeholder="Email" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button type="submit" class="btn primary">Login</button>
+
+      <div class="auth-switch">
+        Create new account?
+        <span data-tab-switch="signup">Sign up</span>
+      </div>
+
+      <div class="auth-divider">OR</div>
+
+      <button type="button" class="btn google-btn" id="googleLogin">
+        <img src="css/google-logo.svg" alt="Google" class="google-icon" />
+        Continue with Google
+      </button>
+    </form>
+
+    <!-- ================= SIGNUP ================= -->
+    <form id="signupForm" class="auth-form tab-content hidden">
+      <input type="text" id="signupUsername" placeholder="Username" />
+      <input type="email" id="signupEmail" placeholder="Email" />
+      <input type="password" id="signupPassword" placeholder="Password" />
+      <button type="submit" class="btn primary">Create Account</button>
+
+      <div class="auth-switch">
+        Already have an account?
+        <span data-tab-switch="login">Login</span>
+      </div>
+
+      <div class="auth-divider">OR</div>
+
+      <button type="button" class="btn google-btn" id="googleLogin">
+        <img src="css/google-logo.svg" alt="Google" class="google-icon" />
+        Continue with Google
+      </button>
+    </form>
+
+    <!-- ================= GUEST ================= -->
+    <div id="guestForm" class="auth-form tab-content hidden">
+      <input type="text" id="guestName" placeholder="Enter your name" />
+      <button class="btn primary" id="startGuest">Continue as Guest</button>
+
+      <div class="guest-note">
+        ⚠️ <strong>Note:</strong> Guest Mode · Progress won’t be saved
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= POPUP MODAL ================= -->
+<div id="popupModal" class="modal-overlay hidden">
+  <div class="modal info" id="popupBox">
+    <h2 id="popupTitle">Message</h2>
+    <p id="popupMessage">Message goes here</p>
+    <button class="btn primary" id="popupClose">OK</button>
+  </div>
+</div>
+
+<link rel="stylesheet" href="css/chatbot.css">
+<div id="chatbot-container"></div>
+
+<script src="js/loadChatbot.js"></script>
+<script src="js/chatbot.js"></script>
+
+<script src="js/theme.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script src="js/script.js"></script>
+<script src="js/navbar.js"></script>
+
+</body>
+</html>

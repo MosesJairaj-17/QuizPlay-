@@ -1,0 +1,264 @@
+/* ================= CHATBOT TOGGLE ================= */
+
+#chatbot-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-card);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#chatbot-toggle img {
+  width: 34px;
+  height: 34px;
+}
+
+#chatbot-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* Hide toggle when chat is open */
+#chatbot-toggle.hidden {
+  display: none;
+}
+
+
+/* ================= CHATBOT CONTAINER ================= */
+
+#chatbot {
+  position: fixed;
+
+  /* 🔥 THIS IS THE REAL FIX */
+  top: 72px;                 /* navbar height ≈ 64px + small gap */
+  right: 32px;
+
+  width: 420px;
+  height: 510px;
+
+  background: var(--bg-card);
+  border-radius: 26px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: var(--shadow);
+  z-index: 999;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px) scale(0.96);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#chatbot.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* ================= HEADER ================= */
+
+.chat-header {
+  height: 64px;              /* LOCKED */
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.bot-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 5px;
+}
+
+/* ================= CHAT BODY ================= */
+
+.chat-body {
+  height: calc(520px - 64px - 72px); /* container - header - input */
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--bg-card);
+}
+
+body.dark .chat-body {
+  background: #0f172a;
+}
+
+/* Scrollbar */
+.chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 6px;
+}
+
+/* ================= MESSAGE ROWS ================= */
+
+.bot,
+.user {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.bot::before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  background-image: url("chatbot.png");
+  background-size: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.user {
+  flex-direction: row-reverse;
+}
+
+.user::before {
+  content: "👤";
+  width: 32px;
+  height: 32px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ================= MESSAGE BUBBLES ================= */
+
+.bot > span,
+.user > span {
+  padding: 12px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 75%;
+  white-space: pre-line;
+}
+
+.bot > span {
+  background: var(--bg-main);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+}
+
+.user > span {
+  background: var(--accent);
+  color: #ffffff;
+  margin-left: auto;
+}
+
+/* ================= INPUT ================= */
+
+.chat-input {
+  height: 72px;              /* LOCKED */
+  display: flex;
+  gap: 10px;
+  padding: 14px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-main);
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.chat-input button {
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  opacity: 0.9;
+}
+
+/* ================= QUICK REPLIES ================= */
+
+.quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.quick-replies button {
+  background: var(--accent-soft);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ================= TYPING ================= */
+
+.typing {
+  font-style: italic;
+  opacity: 0.6;
+  color: var(--text-muted);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  #chatbot {
+    width: 92vw;
+    height: 70vh;
+    right: 4vw;
+    top: 68px;
+  }
+
+  .chat-body {
+    height: calc(70vh - 64px - 72px);
+  }
+}

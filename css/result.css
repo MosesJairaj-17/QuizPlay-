@@ -1,0 +1,266 @@
+/* =====================================================
+   RESET & BASE (MATCH SYSTEM)
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =====================================================
+   THEME TOKENS (SHARED SYSTEM)
+===================================================== */
+:root {
+  --bg-main: #f6f8f7;
+  --bg-card: #ffffff;
+
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+
+  --accent: #22c55e;
+  --accent-soft: #dcfce7;
+
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+body.dark {
+  --bg-main: #0b1220;
+  --bg-card: #111827;
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --accent: #4ade80;
+  --accent-soft: rgba(74, 222, 128, 0.15);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 22px 50px rgba(0, 0, 0, 0.75);
+
+  
+}
+
+/* =====================================================
+   HEADER / NAV
+===================================================== */
+.quiz-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 28px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+}
+
+.quiz-nav h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.back-btn {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* =====================================================
+   MAIN RESULT CARD
+===================================================== */
+.result-container {
+  max-width: 760px;
+  margin: 60px auto;
+  background: var(--bg-card);
+  padding: 56px;
+  border-radius: 36px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+/* =====================================================
+   SCORE SECTION
+===================================================== */
+.score-section {
+  margin-bottom: 52px;
+}
+
+/* SCORE CIRCLE + PROGRESS RING */
+.score-circle {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#score-text {
+  position: absolute;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* SVG RING */
+.progress-ring {
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 12;
+}
+
+.progress-ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-dasharray: 534;
+  stroke-dashoffset: 534;
+  transition: stroke-dashoffset 1.2s ease;
+}
+
+/* SCORE LABEL */
+.score-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   PERFECT SCORE BADGE
+===================================================== */
+.perfect-badge {
+  margin-top: 18px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 1rem;
+  animation: badgePop 0.5s ease;
+}
+
+@keyframes badgePop {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 52px;
+}
+
+.btn {
+  border-radius: 22px;
+  padding: 16px 34px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+/* =====================================================
+   RESULT DETAILS
+===================================================== */
+.result-details {
+  text-align: left;
+}
+
+.result-details h2 {
+  margin-bottom: 26px;
+  font-size: 1.4rem;
+}
+
+.result-item {
+  padding: 18px 20px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  background: var(--accent-soft);
+}
+
+.result-item.correct {
+  border-left: 6px solid #16a34a;
+}
+
+.result-item.wrong {
+  border-left: 6px solid #dc2626;
+}
+
+.result-item p {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   UTILITIES
+===================================================== */
+.hidden {
+  display: none;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 640px) {
+  .result-container {
+    margin: 30px 16px;
+    padding: 34px;
+    border-radius: 28px;
+  }
+
+  .score-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  #score-text {
+    font-size: 1.9rem;
+  }
+}
+
+.points-text {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4ade80; /* green */
+  text-align: center;
+}

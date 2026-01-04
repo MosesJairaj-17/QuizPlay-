@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>QuizPlay - An Interactive Web Based Quiz Application</title>
+  <link rel="icon" type="image/png" href="css/logo.png">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chatbot.css">
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <!-- Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<div id="navbar-container"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero hero-split">
+  <div class="hero-inner">
+
+    <!-- LEFT CONTENT -->
+    <div class="hero-left">
+      <h1>QuizPlay</h1>
+
+      <p>Learn. Compete. Master your knowledge across fun categories.</p>
+
+      <div class="hero-tags">
+        <span class="active" data-category="music">🎵 Music</span>
+        <span data-category="math">🧮 Math</span>
+        <span data-category="movies">🎬 Movies</span>
+        <span data-category="history">📜 History</span>
+        <span data-category="tech">💻 Tech</span>
+        <span data-category="science">🧪 Science</span>
+        <span data-category="sports">⚽ Sports</span>
+        <span data-category="gk">🧠 GK</span>
+      </div>
+
+      <p class="hero-note">
+        ⚡ Instant results • 🏆 Leaderboards • 🎯 Dashboard Stats
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn primary" id="openAuth">Get Started</button>
+      </div>
+    </div>
+
+    <!-- RIGHT SLIDESHOW -->
+    <div class="hero-right">
+      <div class="slideshow">
+        <img src="css/MUSIC.png" class="slide active" alt="Music">
+        <img src="css/MATH.png" class="slide" alt="Math">
+        <img src="css/MOVIES.png" class="slide" alt="Movies">
+        <img src="css/HISTORY.png" class="slide" alt="History">
+        <img src="css/TECH.png" class="slide" alt="Technology">
+        <img src="css/SCI.png" class="slide" alt="Science">
+        <img src="css/SPORTS.png" class="slide" alt="Sports">
+        <img src="css/GK.png" class="slide" alt="General Knowledge">
+      </div>
+
+      <!-- Slideshow Dots -->
+      <div class="slide-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section">
+  <div class="about-container">
+
+    <h2>About QuizPlay</h2>
+
+    <p class="about-intro">
+      QuizPlay is a modern, interactive quiz platform designed to make learning
+      engaging, competitive, and enjoyable. It allows users to explore multiple
+      knowledge domains while tracking performance through instant results and
+      leaderboards.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>🎯 Our Purpose</h3>
+        <p>
+          The primary goal of QuizPlay is to transform traditional learning into
+          an interactive experience. Instead of passive reading, users actively
+          test their knowledge through quizzes that encourage curiosity,
+          retention, and self-improvement.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>🧠 Wide Range of Categories</h3>
+        <p>
+          QuizPlay offers quizzes across diverse categories such as General
+          Knowledge, Science, Technology, History, Sports, Music, Movies, and
+          Mathematics. This ensures that learners from different interests can
+          find content that excites them.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>⚡ Instant Results & Feedback</h3>
+        <p>
+          Each quiz provides instant score evaluation, helping users immediately
+          understand their performance. This real-time feedback promotes faster
+          learning and motivates users to improve their scores.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>🏆 Competitive Leaderboards</h3>
+        <p>
+          QuizPlay includes a leaderboard system that allows users to compare
+          scores with others. This competitive element boosts engagement and
+          encourages repeated participation.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>🌙 Modern UI with Dark Mode</h3>
+        <p>
+          The platform is built with a clean, modern interface and supports dark
+          mode for comfortable usage in low-light environments. Smooth animations
+          and responsive layouts enhance the overall user experience.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>🔐 Guest & User-Friendly Access</h3>
+        <p>
+          Users can participate as guests or log in for a personalized
+          experience. This flexibility ensures ease of access while maintaining
+          engagement and progress tracking.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <p class="contact-subtitle">
+  Have questions, feedback, or suggestions? We’d love to hear from you.
+</p>
+
+
+<form
+  class="contact-form"
+  action="https://formspree.io/f/mvzoddao"
+  method="POST"
+>
+  <div class="input-group">
+    <i class="fas fa-user"></i>
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+    />
+  </div>
+
+  <div class="input-group">
+    <i class="fas fa-envelope"></i>
+    <input
+      type="email"
+      name="email"
+      placeholder="Your Email"
+      required
+    />
+  </div>
+
+  <div class="input-group textarea">
+    <i class="fas fa-comment"></i>
+    <textarea
+      name="message"
+      placeholder="Your Message"
+      required
+    ></textarea>
+  </div>
+
+  <!-- Optional: identifies your project -->
+  <input type="hidden" name="source" value="QuizWorld Website">
+
+  <button class="btn primary" type="submit">
+    Send Message
+  </button>
+
+  <p class="contact-note">
+    🔒 Your information is safe and will never be shared.
+  </p>
+</form>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-content">
+    <p class="footer-text">
+      © 2026 <span>QuizPlay</span>. All rights reserved.
+    </p>
+
+    <div class="social-icons">
+      <a
+        href="https://github.com/MosesJairaj-17"
+        target="_blank"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github"></i>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/moses-jairaj-b6154a320"
+        target="_blank"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin"></i>
+      </a>
+
+      <a
+        href="mailto:mosesjairaj2005@gmail.com"
+        aria-label="Email"
+      >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ================= CHATBOT ================= -->
+
+<div id="chatbot-container"></div>
+
+
+<!-- Scripts -->
+<script src="js/theme.js"></script>
+<script src="js/script.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/loadChatbot.js"></script>
+<script src="js/chatbot.js"></script>
+
+
+</body>
+</html>

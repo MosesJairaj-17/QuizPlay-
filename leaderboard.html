@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuizPlay | Leaderboard</title>
+  <link rel="icon" type="image/png" href="css/logo.png">
+
+  <link rel="stylesheet" href="css/leaderboard.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+<div id="navbar-container"></div>
+
+<header class="quiz-nav">
+  <button class="back-btn" onclick="location.href='index.html'">← Back</button>
+</header>
+
+<main class="leaderboard-container">
+
+  <!-- ===== HEADER INSIDE CARD ===== -->
+  <div class="leaderboard-header">
+
+    <button id="toggle-limit" class="back-btn" style="margin-bottom: 20px;">
+  View Top 30
+</button>
+
+    <div class="leaderboard-title">
+      <h1>Leaderboard</h1>
+      <p>Top performers across categories & difficulty levels</p>
+    </div>
+
+    <div class="leaderboard-filters">
+  <select id="filter-category">
+  <option value="all">All Categories</option>
+  <option value="General Knowledge">General Knowledge</option>
+  <option value="Science">Science</option>
+  <option value="Technology">Technology</option>
+  <option value="Sports">Sports</option>
+  <option value="History">History</option>
+  <option value="Movies">Movies</option>
+  <option value="Mathematics">Mathematics</option>
+  <option value="Music">Music</option>
+</select>
+
+
+      <select id="filter-difficulty">
+        <option value="all">All Difficulties</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+    </div>
+  </div>
+
+<!-- ===== TABLE ===== -->
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Overall Points</th>
+        <th>Highest Points</th>
+      </tr>
+    </thead>
+    <tbody id="leaderboard-body">
+      <!-- injected by JS -->
+    </tbody>
+  </table>
+</div>
+
+
+</main>
+
+<!-- Chatbot Button -->
+<link rel="stylesheet" href="css/chatbot.css">
+
+<div id="chatbot-container"></div>
+
+<script src="js/loadChatbot.js"></script>
+<script src="js/chatbot.js"></script>
+
+
+
+<script src="js/theme.js"></script>
+<script src="js/leaderboard.js"></script>
+<script src="js/script.js"></script>
+<script src="js/navbar.js"></script>
+</body>
+</html>
